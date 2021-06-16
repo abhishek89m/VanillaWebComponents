@@ -23,10 +23,35 @@
     height: 0;
     margin: 0;
     padding: 100% 1rem 0;
-    overflow: hidden;
     position: relative;
-    box-shadow: 0 2px 5px #ccc;
-    border-radius: 0.5rem;
+    box-shadow: 0 2px 3px #aeb9c5;
+    border-radius: 3px;
+    transition: box-shadow 200ms ease-out;
+    cursor: pointer;
+  }
+
+  .cart-item:hover:not(:active) {
+    box-shadow: 0 2px 5px #89929c;
+  }
+
+  .cart-item:not(.new-cart) .delete-icon {
+    height: 2rem;
+    width: 2rem;
+    background-image: url(/assets/trash.svg);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center;
+    display: inline-block;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    border-radius: 2em;
+    box-shadow: 0 2px 3px #aeb9c5;
+    background-color: #fff;
+  }
+
+  .cart-item:not(.new-cart) .delete-icon:hover {
+    box-shadow: 0 2px 5px #89929c;
   }
 
   .cart-item-content {
@@ -42,19 +67,121 @@
     gap: 0.5rem;
   }
 
-  .new-cart::before {
+  .new-cart .cart-item-content::before {
     content: '+';
     color: #999999;
     font-size: 8rem;
     font-weight: lighter;
   }
+
+  .add-cart-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -ms-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 10;
+  }
+
+  .add-cart-popup .content {
+    background-color: #fff;
+    z-index: 11;
+    width: 40vw;
+    border-radius: 5px;
+    position: relative;
+    padding: 2rem;
+  }
+
+  .add-cart-popup > .content > .close-icon {
+    height: 3rem;
+    width: 3rem;
+    background-image: url(/assets/times.svg);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center;
+    display: inline-block;
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    cursor: pointer;
+    border-radius: 3rem;
+  }
+
+  .add-cart-popup > .content > .close-icon:hover {
+    transform: rotate(360deg);
+    transition: transform 300ms ease-in-out;
+  }
+
+  .field-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #999;
+  }
+
+  .field {
+    padding: 1rem;
+    width: 90%;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px #ddd inset;
+    transition: box-shadow 100ms linear;
+    margin-bottom: 1rem;
+  }
+
+  .field:focus {
+    box-shadow: 1px 1px 3px #ccc inset;
+  }
+
+  .add-cart-title {
+    font-weight: lighter;
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  .content-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  .hidden {
+    display: none;
+  }
 </style>
 
 <article class="pick-cart-flow-container">
-  <div class="cart-item">
-    <div class="cart-item-content new-cart"></div>
+  <div class="cart-item new-cart">
+    <div class="cart-item-content"></div>
   </div>
 </article>
+
+<section class="add-cart-popup hidden">
+  <div class="content">
+    <h2 class="add-cart-title">Add a cart</h2>
+    <div>
+      <label class="field-label cart-name-label" for="cart-name">Cart Name</label>
+      <input type="text" id="cart-name" class="field" placeholder="Enter the cart name">
+    </div>
+    <div>
+      <label class="field-label cart-descriiption-label" for="cart-description">Cart Name</label>
+      <input type="text" id="cart-description" class="field" placeholder="Enter the cart description">
+    </div>
+    <div class="content-footer">
+      <bkt-button class="pre cancel-button glow-button btn:default">Cancel</bkt-button>
+      <bkt-button class="pre save-button glow-button btn:primary">Save</bkt-button>
+    </div>
+    <a class="close-icon"></a>
+  </div>
+</section>
 
 <template id="template-cart-item-box">
   <div class="cart-item">
@@ -62,5 +189,6 @@
       <img class="cart-icon" src="/assets/shopping-cart.png">
       <span class="cart-name"></span>
     </div>
+    <div class="delete-icon"></div>
   </div>
 </template>
