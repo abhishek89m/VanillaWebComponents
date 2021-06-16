@@ -13,19 +13,25 @@ export async function getCarts() {
 export async function createCart(name, description) {
   let carts = await getCarts();
 
-  if (carts.some((cart) => cart.name === name)) {
+  const cartFound = carts.find((cart) => cart.name === name);
+  if (cartFound) {
     // Trying to add the same cart again
-    return;
+    return cartFound.id;
   }
 
+  // Using current timestamp as unique ID
+  const id = `cart-${Date.now()}`;
+
   carts.push({
+    id,
     name,
     description,
-    id: `cart-${Date.now()}`, // Using current timestamp as unique ID
     items: [], // Leaving this empty
   });
 
   localStorage.setItem('carts', JSON.stringify(carts));
+
+  return id;
 };
 
 /**

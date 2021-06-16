@@ -29,8 +29,10 @@ export class CartFlowComponent extends BaseComponent {
         this.style.setProperty('--left', `-${left}px`);
 
         this.shadowRoot
-          .querySelector('.back-button')
-          .classList.toggle('hidden', dataset.index === '1');
+          .querySelectorAll('.next-button, .back-button')
+          .forEach((node) =>
+            node.classList.toggle('hidden', dataset.index === '1')
+          );
 
         this.currentIndex = parseInt(dataset.index);
       }
@@ -55,6 +57,11 @@ export class CartFlowComponent extends BaseComponent {
             )?.click();
           });
         });
+    });
+
+    this.listen('cart-selected', (id) => {
+      this.currentIndex = 2;
+      this.querySelector(`.title[data-index='${this.currentIndex}']`)?.click();
     });
   }
 }

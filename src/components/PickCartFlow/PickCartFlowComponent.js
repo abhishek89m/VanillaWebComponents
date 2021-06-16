@@ -66,9 +66,11 @@ export class PickCartFlowComponent extends BaseComponent {
           const { value: cartDescription } =
             this.shadowRoot.querySelector('#cart-description');
 
-          createCart(cartName, cartDescription);
+          const id = await createCart(cartName, cartDescription);
 
           this.hideAddModal();
+
+          this.emit('cart-selected', id);
         });
 
       this.shadowRoot
@@ -84,7 +86,16 @@ export class PickCartFlowComponent extends BaseComponent {
               cartItem.remove();
             }
           });
-        })
+        });
+      
+      this.shadowRoot
+        .querySelectorAll('.cart-item')
+        .forEach((node) => {
+          node.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            this.emit('cart-selected', e.target.closest('.cart-item').id);
+          });
+        });
         
     });
   }
