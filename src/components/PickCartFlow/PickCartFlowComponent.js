@@ -89,7 +89,7 @@ export class PickCartFlowComponent extends BaseComponent {
         });
       
       this.shadowRoot
-        .querySelectorAll('.cart-item')
+        .querySelectorAll('.cart-item:not(.new-cart)')
         .forEach((node) => {
           node.addEventListener('click', async (e) => {
             e.stopPropagation();
