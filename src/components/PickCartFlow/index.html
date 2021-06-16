@@ -1,11 +1,57 @@
 <style>
-  
+  .cart-item-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .cart-item {
+    height: 0;
+    margin: 0;
+    padding: 100% 1rem 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 5px #ccc;
+    border-radius: 0.5rem;
+  }
+
+  .cart-item-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .new-cart::before {
+    content: '+';
+    color: #999999;
+    font-size: 8rem;
+    font-weight: lighter;
+  }
 </style>
 
-<article>
-  
+<article class="pick-cart-flow-container">
+  <div class="cart-item-wrapper">
+    <div class="cart-item">
+      <div class="cart-item-content new-cart"></div>
+    </div>
+  </div>
 </article>
 
 <template id="template-cart-item-box">
-
+  <div class="cart-item-wrapper">
+    <div class="cart-item">
+      <div class="cart-item-content">
+        <img class="cart-icon" src="/assets/shopping-cart.png">
+        <span class="cart-name"></span>
+      </div>
+    </div>
+  </div>
 </template>

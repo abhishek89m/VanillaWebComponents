@@ -11,16 +11,20 @@ export class PickCartFlowComponent extends BaseComponent {
 
   async loadCarts() {
     const carts = await CartsService.getCarts();
-    const cartsContainer = this.shadowRoot.querySelector(
-      '#pick-cart-flow-container'
-    );
+    this.listen('loaded', () => {
+      const cartsContainer = this.shadowRoot.querySelector(
+        '.pick-cart-flow-container'
+      );
 
-    carts.forEach(({ id, name }) => {
-      const cartItem = this.getCartItemElement();
-      cartItem.id = id;
-      cartItem.querySelector('.cart-name').innerText = name;
-      cartsContainer.appendChild(cartItem);
-    });
+      console.log(carts);
+
+      carts.forEach(({ id, name }) => {
+        const cartItem = this.getCartItemElement();
+        cartItem.id = id;
+        cartItem.querySelector('.cart-name').innerText = name;
+        cartsContainer.appendChild(cartItem);
+      });
+    });    
   }
 
   getCartItemElement() {
