@@ -5,7 +5,7 @@
     flex-grow: 1;
   }
 
-  :host, .main-content {
+  .main-content {
     height: 100%;
   }
 
@@ -18,8 +18,16 @@
     font-weight: lighter;
     margin: 0;
     color: #cccccc;
-    width: 80vw;
+    width: 75vw;
     cursor: pointer;
+    transition: color 200ms linear;
+  }
+
+  @media screen and (min-width: 992px) {
+    .title {
+      width: auto;
+      padding-right: 2rem;
+    }
   }
 
   .description {

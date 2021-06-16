@@ -7,6 +7,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: auto;
   }
 
   .flow-header {
@@ -16,6 +17,12 @@
     flex-wrap: nowrap;
     transform: translateX(var(--left));
     transition: transform 200ms ease-out;
+  }
+
+  @media screen and (min-width: 992px) {
+    .flow-header {
+      transform: none;
+    }
   }
 
   .flow-body {
