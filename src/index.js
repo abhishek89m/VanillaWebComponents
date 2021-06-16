@@ -5,6 +5,10 @@ import {
   PickCartFlowIdentifier,
   PickCartFlowComponent,
 } from './components/PickCartFlow/PickCartFlowComponent.js';
+import {
+  ProductsFlowIdentifier,
+  ProductsFlowComponent,
+} from './components/ProductsFlow/ProductsFlowComponent.js';
 
 /**
  * Bootstrapping from components folder
@@ -19,3 +23,4 @@ bootstrap(['MainHeader', 'MainComponent']);
 defineComponent(BtnIdentifier, BtnComponent);
 defineComponent(CartFlowIdentifier, CartFlowComponent);
 defineComponent(PickCartFlowIdentifier, PickCartFlowComponent);
+defineComponent(ProductsFlowIdentifier, ProductsFlowComponent);

@@ -1,0 +1,107 @@
+<style>
+  :host {
+    overflow: auto;
+  }
+
+  .products-flow-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: stretch;
+    padding: 0.2rem;
+    margin-bottom: 1rem;
+  }
+
+  @media screen and (min-width: 992px) {
+    .products-flow-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .products-flow-container {
+      grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    }
+  }
+
+  .product {
+    margin: 0;
+    padding: 0.5rem;
+    position: relative;
+    box-shadow: 0 2px 3px #aeb9c5;
+    border-radius: 3px;
+    transition: box-shadow 200ms ease-out;
+    cursor: pointer;display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .product-description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.3rem;
+    text-align: center;
+  }
+
+  .product-price {
+    color: rgb(152, 194, 0);
+  }
+
+  .minus, .plus {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 30px;
+    box-shadow: 0 2px 3px #999;
+    transition: box-shadow 100ms ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-count {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .minus::before, .plus::before {
+    content: '';
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    font-size: 1rem;
+  }
+
+  .minus::before {
+    content: '-';
+  }
+
+  .plus::before {
+    content: '+';
+  }
+
+  .product-count .count::before {
+    content: attr(data-count);
+  }
+</style>
+
+<article class="products-flow-container">
+  
+</article>
+
+<template id="template-product">
+  <div class="product">
+    <img class="product-image" src="/assets/image-placeholder.svg">
+    <div class="product-description">
+      <span class="product-name"></span>
+      <span class="product-price"></span>
+    </div>
+    <div class="product-count">
+      <button class="minus"></button>
+      <span class="count" data-count="0"></span>
+      <button class="plus"></button>
+    </div>
+  </div>
+</template>

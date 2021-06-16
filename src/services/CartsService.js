@@ -10,6 +10,11 @@ export async function getCarts() {
   return JSON.parse(carts);
 };
 
+export async function getCart(id) {
+  let carts = getCarts();
+  return carts.find((cart) => cart.id === id);
+};
+
 export async function createCart(name, description) {
   let carts = await getCarts();
 

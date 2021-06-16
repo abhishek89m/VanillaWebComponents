@@ -4,16 +4,12 @@ import {
   getCarts,
   deleteCart,
 } from '../../services/CartsService.js';
-import ProductsService from '../../services/ProductsService.js';
 
 export const PickCartFlowIdentifier = 'pick-cart-flow';
 
 export class PickCartFlowComponent extends BaseComponent {
-  products = [];
-
   constructor() {
     super('PickCartFlow', PickCartFlowIdentifier);
-    this.loadProducts();
     this.loadCarts();
   }
 
@@ -104,10 +100,6 @@ export class PickCartFlowComponent extends BaseComponent {
     this.shadowRoot
       .querySelector('.add-cart-popup')
       .classList.toggle('hidden', true);
-  }
-
-  async loadProducts() {
-    this.products = await ProductsService.getProducts();
   }
 
   getCartItemElement() {

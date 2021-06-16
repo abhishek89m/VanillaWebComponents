@@ -1,82 +1,82 @@
 [
   {
     "id": 112,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Apples",
+    "price": "$1.12"
   },
   {
     "id": 124,
-    "name": "Product",
+    "name": "Oranges",
     "price": "$2.13"
   },
   {
     "id": 145,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Banana",
+    "price": "$2.53"
   },
   {
     "id": 18,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Coconuts",
+    "price": "$3.13"
   },
   {
     "id": 100,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Mangos",
+    "price": "$6.03"
   },
   {
     "id": 12,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Letuce",
+    "price": "$1.1"
   },
   {
     "id": 1214,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Spniach",
+    "price": "$1.12"
   },
   {
     "id": 3145,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Meat",
+    "price": "$4.1"
   },
   {
     "id": 182,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Trout",
+    "price": "$5.69"
   },
   {
     "id": 1500,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Salmon",
+    "price": "4.53"
   },
   {
     "id": 123,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Olives",
+    "price": "$3.93"
   },
   {
     "id": 214,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "White Bread",
+    "price": "$0.99"
   },
   {
     "id": 314,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Chocolate bar",
+    "price": "$2.2"
   },
   {
     "id": 134,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Water bottle 5L",
+    "price": "$1.14"
   },
   {
     "id": 2148,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Sponge",
+    "price": "$1.45"
   },
   {
     "id": 1314,
-    "name": "Product",
-    "price": "$2.13"
+    "name": "Bowl",
+    "price": "$4.99"
   }
 ]
