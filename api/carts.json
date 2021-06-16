@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "name": "Weekly cart",
+    "description": "Our weekly cart",
+    "items": [112, 124, 145, 18, 100]
+  },
+  {
+    "id": 1,
+    "name": "For Baby",
+    "description": "All the things we need for baby",
+    "items": [12, 1214, 3145, 182, 1500]
+  },
+  {
+    "id": 2,
+    "name": "Gym",
+    "description": "Gym proteins and suppliments",
+    "items": [123, 214, 314]
+  },
+  {
+    "id": 3,
+    "name": "Monthly",
+    "description": "Grossaries needed every month",
+    "items": [134, 2148, 1314]
+  }
+]

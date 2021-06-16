@@ -1,0 +1,48 @@
+<style>
+  :host {
+    height: 100%;
+  }
+
+  .flow-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flow-header {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    transform: translateX(var(--left));
+    transition: transform 200ms ease-out;
+  }
+
+  .flow-body {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+  
+  .flow-footer {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+</style>
+
+<article class="flow-container">
+  <div class="flow-header">
+    <slot id="flow-tab-header-slot" name="flow-tab-header"></slot>
+  </div>
+  <div class="flow-body">
+    <slot id="flow-tab-body-slot"></slot>
+  </div>
+  <div class="flow-footer">
+    <bkt-button class="pre hidden back-button glow-button btn:default">Back</bkt-button>
+    <bkt-button class="pre next-button glow-button btn:primary">Next</bkt-button>
+  </div>
+</article>

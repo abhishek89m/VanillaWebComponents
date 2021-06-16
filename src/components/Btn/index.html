@@ -1,0 +1,29 @@
+<style>
+  :host(.glow-button) > .btn {
+    position: relative;
+    appearance: none;
+    color: var(--button-font-color);
+    padding: 0.8em 2em;
+    cursor: pointer;
+    outline: none;
+    border-radius: 100px;
+    border: 3px solid transparent;
+    background: linear-gradient(var(--button-bg-color), var(--button-bg-color)) padding-box,
+      radial-gradient(farthest-corner at var(--x, 50%) var(--y, 50%), #00c9a7, #845ec2) border-box;
+    font-size: 1rem;
+  }
+
+  :host(.btn\:primary) {
+    --button-bg-color: #27235f;
+    --button-font-color: #ebf0f1;
+  }
+
+  :host(.btn\:default) {
+    --button-bg-color: #ebf0f1;
+    --button-font-color: #27235f;
+  }
+</style>
+
+<button class="btn">
+  <slot></slot>
+</button>

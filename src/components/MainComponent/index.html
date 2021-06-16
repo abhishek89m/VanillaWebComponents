@@ -1,0 +1,69 @@
+<style>
+  :host {
+    overflow: hidden;
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  :host, .main-content {
+    height: 100%;
+  }
+
+  .main-content {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: lighter;
+    margin: 0;
+    color: #cccccc;
+    width: 80vw;
+    cursor: pointer;
+  }
+
+  .description {
+    visibility: hidden;
+    color: #333333;
+    margin-top: 5px;
+  }
+
+  .title.active {
+    color: #333333;
+  }
+
+  .title.active + .description {
+    visibility: visible;
+  }
+
+  .content:not(.active) {
+    display: none;
+  }
+</style>
+
+<main class="main-content">
+  <cart-flow>
+    <div slot="flow-tab-header">
+      <h1 class="title active" data-content="pick-a-cart" data-index="1">Welcome back!</h1>
+      <p class="description">Pick a cart to proceed</p>
+    </div>
+    <div slot="flow-tab-header">
+      <h1 class="title" data-content="add-to-cart" data-index="2">Add to cart</h1>
+      <p class="description">Add items to cart</p>
+    </div>
+    <div slot="flow-tab-header">
+      <h1 class="title" data-content="summary" data-index="3">Summary</h1>
+      <p class="description">Proceed to pay</p>
+    </div>
+
+    <div class="content pick-a-cart active">
+      Carts
+    </div>
+    <div class="content add-to-cart">
+      Products
+    </div>
+    <div class="content summary">
+      Summary
+    </div>
+  </cart-flow>
+</main>
